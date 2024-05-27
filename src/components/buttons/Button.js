@@ -1,8 +1,9 @@
-const Button = ({text, type, size, icons}) => {
+const Button = ({type, text, color, classes, icons, onClickHandler}) => {
+    
     return (
-        <button className={`btn btn-${size} btn-${type} shadow-sm`}>
-            {icons.map(icon => <i key={Date.now()} className={`fa fa-${icon}`}></i>)}
-            <span className="px-2">{text}</span>
+        <button type={`${type ?? ''}`} className={`btn btn-${color} ${classes ?? ''}`} onClick={onClickHandler}>
+            {icons.map(icon => <i key={Math.random()*10000 + 1} className={icon}></i>)}
+            {text && <span className="px-2">{text}</span>}
         </button>
     );
 }

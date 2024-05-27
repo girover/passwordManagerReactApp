@@ -5,7 +5,7 @@ const Footer = () => {
                 © Copyright <strong><span>Group 3</span></strong>. All Rights Reserved
             </div>
             <div>
-                Designed by <b>Rasmus V, Udrikke, Rasmus K, Majed</b>
+                Designed by <b>Rasmus V, Ulrikke, Rasmus K, Majed</b>
             </div>
         </footer>
     );
