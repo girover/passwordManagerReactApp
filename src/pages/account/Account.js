@@ -1,6 +1,7 @@
 import BtnIcon from "../../components/buttons/BtnIcon";
 import BtnPrimary from "../../components/buttons/BtnPrimary";
 import Card from "../../components/cards/Card";
+import FormInput from "../../components/forms/FormInput";
 import NavItem from "../../components/navbarNav/NavItem";
 
 const Account = () => {
@@ -40,11 +41,14 @@ const Account = () => {
             </div>
             <div className="col-12 col-md-6 p-2">
                 <Card title="New Password" icons={["fa fa-fill-drip"]}>
+                    <form>
+                        <FormInput id="password" name="password" label="Please type your password here" />
+                    </form>
                 </Card>
             </div>
             <div className="col-12 col-md-6 p-2">
                 <Card title="Save Created Password" icons={["fa fa-save"]}>
-                    <BtnPrimary text="Save" icons={['fa fa-save']} />
+                    <BtnPrimary text="Save" icons={['fa fa-save']} classes="bg-blue-900" />
                 </Card>
             </div>
         </div>

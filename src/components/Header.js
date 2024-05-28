@@ -1,6 +1,9 @@
-import BtnIcon from "./buttons/BtnIcon";
+import {useAuth} from "../auth/AuthProvider";
 
 const Header = () => {
+
+    const {user} = useAuth();
+    
     return (
         <header id="header" className="header fixed-top bg-blue-50 shadow-sm d-flex align-items-center">
             <div className="d-lg-none ms-1">
@@ -24,7 +27,7 @@ const Header = () => {
                         <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" id="dropdownMenuProfile">
                             <img id="img-avatar" src="/img/avatar.png" alt="Avatar" />
                             <span className="d-none d-md-block dropdown-toggle text-dark ps-2">
-                                username
+                                {user ? user.username : 'username'}
                             </span>
                         </a>
                         <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile bg-blue-200" aria-labelledby="dropdownMenuProfile">

@@ -1,28 +1,41 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Card from "../../components/cards/Card";
 import TableHead from "../../components/tables/TableHead";
 import BtnIcon from "../../components/buttons/BtnIcon";
 import db from "../../data";
+import { useEffect, useState } from "react";
 
-const Passwords = () => {
+const CategoryPasswords = () => {
 
-    const passwords = db.passwords.map(password => {
-        return {
-            ...password,
-            category: db.categories.find(cat => cat.id === parseInt(password.category))?.name || 'Uncategorized',
-            lastUsed: password.lastUsed ?? 'Never'
+    const { id } = useParams();
+    const [category, setCategory] = useState({});
+    const [passwords, setPasswords] = useState([]);
+    const navigate = useNavigate();
+     
+    
+
+    useEffect(() => {
+        let category = db.categories.find(cat => parseInt(cat.id) === parseInt(id));
+        
+        if (!category) {
+            navigate('/not-found');
         }
-    });
+        setCategory(category);
+
+        setPasswords(db.passwords.filter(password => {
+            return parseInt(password.category) === parseInt(id);
+        })?.map(password => {
+            return {
+                ...password,
+                category: db.categories.find(cat => cat.id === parseInt(password.category))?.name || 'Uncategorized',
+                lastUsed: password.lastUsed ?? 'Never'
+            }
+        }));
+
+    }, [id]);
 
     return (
-        <Card title='Passwords' icons={["fa fa-key"]} fs="5">
-            <div>
-                <Link className="btn btn-light shadow-sm" to='/passwords/add'>
-                    <i className="fa fa-key"></i>
-                    <i className="fa fa-plus"></i>
-                    <span className="px-2">Add New Login</span>
-                </Link>
-            </div>
+        <Card title={`Passwords under category [ ${category?.name} ]`} icons={["fa fa-key"]} fs="5">
             <div className="pt-4 py-2">
                 <table className="table table-sm table-striped">
                     <TableHead bgColor="blue-300" headers={['#', 'Name', 'Last used', 'Username', 'Password', 'Category', 'Actions']} />
@@ -58,4 +71,4 @@ const Passwords = () => {
     );
 }
 
-export default Passwords;
+export default CategoryPasswords;

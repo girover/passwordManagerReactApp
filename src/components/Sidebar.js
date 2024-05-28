@@ -23,9 +23,9 @@ const Sidebar = () => {
 
 
     return (
-        <aside className="offcanvas offcanvas-start bg-blue-200-linear" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasSidebar" aria-labelledby="offcanvas-sidebar-header">
+        <aside className="offcanvas offcanvas-start bg-blue-200-linear" data-bs-scroll="true" data-bs-backdrop="true" tabIndex="-1" id="offcanvasSidebar" aria-labelledby="offcanvas-sidebar-header">
             <div className="offcanvas-header" id="offcanvas-sidebar-header">
-                <img id="img-logo" src="img/logo.png" alt="A logo for the password manager app" />
+                <img id="img-logo" src="/img/logo.png" alt="A logo for the password manager app" />
                 <span className="text-sky-900 fs-5 fw-bold">Password Manager</span>
                 <button type="button" className="btn-close text-dark d-lg-none border border-1 border-secondary-subtle" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
@@ -53,7 +53,11 @@ const Sidebar = () => {
                     </li>
                 </ul>
                 <div className='d-flex justify-content-between '>
-                    <BtnIcon ariaLabel="Signout" text="Signout" icons={['fa fa-sign-out-alt']} classes='btn-danger btn-sm rounded-pill' />
+                    <Link className="btn btn-danger btn-sm rounded-pill" to="/logout">
+                        <span className="visually-hidden">Signout</span>
+                        <i className="fa fa-sign-out-alt"></i>
+                    </Link>
+                    {/* <BtnIcon ariaLabel="Signout" text="Signout" icons={['fa fa-sign-out-alt']} classes='btn-danger btn-sm rounded-pill' /> */}
                     <BtnIcon ariaLabel="Settings" text="Settings" icons={['fa fa-gear']} classes='btn-primary bg-blue-600 btn-sm rounded-pill'/>
                 </div>
             </div>

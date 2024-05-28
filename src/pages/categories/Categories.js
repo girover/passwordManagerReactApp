@@ -6,7 +6,12 @@ import db from "../../data";
 
 const Categories = () => {
 
-    const categories = db.categories;
+    const categories = db.categories.map(category => {
+        return {
+            ...category,
+            totalPasswords: db.passwords.filter(password => parseInt(password.category) === parseInt(category.id))?.length || 0
+        }
+    });
     
     return (
         <Card title="Categories" fs="5" icons={["fa fa-icons"]}>
@@ -25,12 +30,16 @@ const Categories = () => {
                             <tr key={category.id}>
                                 <th scope="row">{category.id}</th>
                                 <td>{category.name}</td>
-                                <td>{category.count}</td>
+                                <td>{category.totalPasswords}</td>
                                 <td>{category.description}</td>
                                 <td>
-                                    {/* <BtnIcon icons={['fa fa-edit']} classes="btn-sm me-1" /> */}
                                     <Link className="btn btn-sm me-1" to={{ pathname: '/categories/edit' }} state={category}>
+                                        <span className="visually-hidden">{`Edit category ${category.name}`}</span>
                                         <i className="fa fa-edit"></i>
+                                    </Link>
+                                    <Link className="btn btn-sm me-1" to={{ pathname: `/categories/${category.id}/passwords` }}>
+                                        <span className="visually-hidden">{`Edit category ${category.name}`}</span>
+                                        <i className="fa fa-key"></i>
                                     </Link>
                                     <BtnIcon ariaLabel={`delete category ${category.name}`} text="delete category" icons={['fa fa-trash-can']} classes="btn-sm me-1" />
                                 </td>

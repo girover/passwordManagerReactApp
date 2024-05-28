@@ -598,6 +598,9 @@ aside .navbar-nav .nav-item.active::after {
 }
 
 /* ------------------- </Sidebar> ------------------- */
+.toast-container{
+    position: fixed !important;
+}
 
 .visually-hidden {
     position: absolute;
