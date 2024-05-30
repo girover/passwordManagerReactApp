@@ -31,7 +31,7 @@ const Passwords = () => {
                             <tr key={password.id}>
                                 <th scope="row">{password.id}</th>
                                 <td>{password.name}</td>
-                                <td>{password.lastUsed}</td>
+                                <td className="d-lg-none">{password.lastUsed}</td>
                                 <td>
                                     {password.username}
                                     <BtnIcon ariaLabel={`copy username of ${password.name}`} text="copy username" icons={['fa-regular fa-copy']} classes="btn-sm" />
@@ -41,7 +41,7 @@ const Passwords = () => {
                                     <BtnIcon ariaLabel={`show password of ${password.name}`} text="show password" icons={['fa-regular fa-eye']} classes="btn-sm" />
                                     <BtnIcon  ariaLabel={`copy password of ${password.name}`} text="copy password" icons={['fa-regular fa-copy']} classes="btn-sm" />
                                 </td>
-                                <td>{password.category}</td>
+                                <td className="d-lg-none">{password.category}</td>
                                 <td>
                                     <Link className="btn btn-sm me-1" to={{ pathname: '/passwords/edit' }} state={password}>
                                         <span className="visually-hidden">{`Edit password for ${password.name}`}</span>

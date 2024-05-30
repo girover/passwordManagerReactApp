@@ -30,23 +30,23 @@ const Sidebar = () => {
                 <button type="button" className="btn-close text-dark d-lg-none border border-1 border-secondary-subtle" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div className="offcanvas-body d-flex flex-column">
-                <ul className="navbar-nav justify-content-start flex-grow-1 text-sky-950">
-                    <li className={`nav-item position-relative mb-2 p-2 rounded-2 ${activeLink == 'home' ? 'active' : 'bg-blue-300'}`}>
+                <ul className="navbar-nav justify-content-start flex-grow-1 text-blue-950">
+                    <li className={`nav-item hover-bg-blue-200 position-relative mb-2 p-2 rounded-2 ${activeLink == 'home' ? 'active' : 'bg-blue-300'}`}>
                         <Link className="nav-link d-flex justify-content-between align-items-center" to="/home" aria-current="page" onClick={() => handleOnLinkClicked('home')}>
                             <i className="fa fa-home"></i> <span>Home</span>
                         </Link>
                     </li>
-                    <li className={`nav-item position-relative mb-2 p-2 rounded-2 ${activeLink == 'passwords' ? 'active' : 'bg-blue-300'}`}>
+                    <li className={`nav-item hover-bg-blue-200 position-relative mb-2 p-2 rounded-2 ${activeLink == 'passwords' ? 'active' : 'bg-blue-300'}`}>
                         <Link className="nav-link d-flex justify-content-between align-items-center" to="/passwords" aria-current="page" onClick={() => handleOnLinkClicked('passwords')}>
                             <i className="fa fa-key"></i> <span>Passwords</span>
                         </Link>
                     </li>
-                    <li className={`nav-item position-relative mb-2 p-2 rounded-2 ${activeLink == 'categories' ? 'active' : 'bg-blue-300'}`}>
+                    <li className={`nav-item hover-bg-blue-200 position-relative mb-2 p-2 rounded-2 ${activeLink == 'categories' ? 'active' : 'bg-blue-300'}`}>
                         <Link className="nav-link d-flex justify-content-between align-items-center" to="/categories" aria-current="page" onClick={() => handleOnLinkClicked('categories')}>
                             <i className="fa fa-icons"></i> <span>Categories</span>
                         </Link>
                     </li>
-                    <li className={`nav-item position-relative mb-2 p-2 rounded-2 ${activeLink == 'account' ? 'active' : 'bg-blue-300'}`}>
+                    <li className={`nav-item hover-bg-blue-200 position-relative mb-2 p-2 rounded-2 ${activeLink == 'account' ? 'active' : 'bg-blue-300'}`}>
                         <Link className="nav-link d-flex justify-content-between align-items-center" to="/account" aria-current="page" onClick={() => handleOnLinkClicked('account')}>
                             <i className="fa fa-address-card"></i> <span>Account</span>
                         </Link>

@@ -12,13 +12,13 @@ const Header = () => {
                     <i className="fa fa-list"></i>
                 </button>
             </div>
-            <div className="d-flex d-none align-items-center justify-content-between">
+            {/* <div className="d-flex d-none align-items-center justify-content-between">
                 <a className="nav-link logo d-flex align-items-center" href="/">
                     <img id="img-logo" src="/img/logo.png" alt="A logo for the password manager app" />
                     <span className="d-none d-lg-block fs-6">Password Manager</span>
                 </a>
                 <i className="bi bi-list toggle-sidebar-btn"></i>
-            </div>
+            </div> */}
 
             <nav className="header-nav ms-auto">
                 <ul className="nav d-flex align-items-center">
